@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, session } = require('electron');
 const path = require('path');
 const url = require('url');
 const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
@@ -8,6 +8,7 @@ const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-d
 let window;
 
 function createWindow() {
+
   window = new BrowserWindow({
     width: 800,
     height: 600,
@@ -16,7 +17,7 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
       preload: './preload.js'
-    }
+    },
   });
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({
