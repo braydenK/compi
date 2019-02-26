@@ -1,4 +1,4 @@
-const { app, BrowserWindow, session } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
@@ -13,6 +13,7 @@ function createWindow() {
     width: 800,
     height: 600,
     titleBarStyle: 'hidden',
+    icon: path.join(__dirname, 'assets/icons/logo.png'),
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
