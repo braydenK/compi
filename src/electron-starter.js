@@ -9,11 +9,18 @@ let window;
 
 function createWindow() {
 
+  const iconUrl = url.format({
+    pathname: path.join(__dirname, 'Icon/logo.icns'),
+    protocol: 'file:',
+    slashes: true
+  })
+
   window = new BrowserWindow({
     width: 800,
     height: 600,
+    title: "Compi",
     titleBarStyle: 'hidden',
-    icon: path.join(__dirname, 'assets/icons/logo.png'),
+    icon: iconUrl,
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
