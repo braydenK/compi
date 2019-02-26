@@ -1,17 +1,21 @@
-const electron = require('electron');
+const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-
-let mainWindow;
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let window;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({
+  window = new BrowserWindow({
     width: 800,
     height: 600,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false,
+      preload: './preload.js'
+    }
   });
 
   const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -20,15 +24,16 @@ function createWindow() {
     slashes: true
   });
 
-  mainWindow.loadURL(startUrl);
-  mainWindow.webContents.openDevTools();
+  window.loadURL(startUrl);
+  window.webContents.openDevTools();
 
-  mainWindow.on('closed', function() {
-    mainWindow = null;
+  window.on('closed', function() {
+    window = null;
   });
 }
 
 app.on('ready', createWindow);
+
 app.on('window-all-closed', function() {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -36,7 +41,7 @@ app.on('window-all-closed', function() {
 });
 
 app.on('activate', function() {
-  if (mainWindow === null) {
+  if (window === null) {
     createWindow();
   }
 });
