@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Sidebar.css';
 import menuItems from './menu-items';
@@ -19,22 +19,22 @@ class Sidebar extends Component {
               <ListItem
                 button
                 key={index}
-                className={index === (menuItems.length - 1) ? "bottom-list-item": ''}
+                className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
               >
-                <ListItemIcon>
+                <div className="icon-container">
                   <FontAwesomeIcon
-                    style={{color: item['color']}}
+                    className="icon"
+                    style={{ color: item['color'] }}
                     icon={item['icon']}
                   />
-                </ListItemIcon>
-
+                </div>
                 <ListItemText
-                  disableTypography
+                  className={item['name'] === 'Resources' ? "shift-text" : "list-item-text"}
                   primary={item['name']}
                 />
-                </ListItem>
-              ))}
-            </List>
+              </ListItem>
+            ))}
+          </List>
         </Drawer>
       </div>
     );

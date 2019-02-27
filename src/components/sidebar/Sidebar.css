@@ -16,3 +16,26 @@
     position: absolute !important;
     bottom: 0;
 }
+
+.list-item {
+    margin-top: 5px !important;
+}
+
+.list-item-text {
+    width: 20px !important;
+    margin-left: 10px !important;
+}
+
+.shift-text {
+    margin-left: 10px !important;
+}
+
+.icon-container {
+    margin: 5px;
+}
+
+.icon {
+    font-size: 15px;
+    vertical-align: middle;
+}
+
