@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider, withStyles, Typography } from '@material-ui/core';
+import { MuiThemeProvider, withStyles } from '@material-ui/core';
 import theme from './theme';
 import './App.css';
 import SideBar from './sidebar/Sidebar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
+import ListLayout from './layouts/ListLayout';
 
 library.add(faCode, faBook, faGraduationCap, faArchive, faCog);
 
@@ -33,6 +34,7 @@ class App extends Component {
           <SideBar />
 
           <main className={classes.content}>
+            <ListLayout />
           </main>
         </MuiThemeProvider>
       </div>
