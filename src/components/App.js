@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core';
 import theme from './theme';
 import './App.css';
-import SideBar from './sidebar/SideBar';
+import SideBar from './sidebar/Sidebar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +16,9 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <SideBar />
-          APP
+          <main className="content">
+
+          </main>
         </MuiThemeProvider>
       </div>
     );
