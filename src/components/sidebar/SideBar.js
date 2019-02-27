@@ -3,15 +3,9 @@ import { Drawer, withStyles, List, ListItem, ListItemText, ListItemIcon, Typogra
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Sidebar.css';
 
-const drawerWidth = '180px';
-
 const styledBy = (property, mapping) => props => mapping[props[property]];
 
 const styles = theme => ({
-  drawerPaper: {
-    width: drawerWidth,
-    backgroundColor: '#172B4D'
-  },
   toolbar: theme.mixins.toolbar,
   listItem: {
     '&:hover': {
@@ -20,9 +14,8 @@ const styles = theme => ({
     position: styledBy('bottomListItem', 'absolute')
   },
   listItemText: {
-    color: '#ffffff',
     fontWeight: 500,
-    marginLeft: -10
+    marginLeft: -10,
   },
   bottomListItem: {
     position: 'absolute',
@@ -34,22 +27,22 @@ const menuItems = [
   {
     'name': 'Study',
     'icon': 'graduation-cap',
-    'color': '#00C7E6',
+    'color': '#2c3e50',
   },
   {
     'name': 'Questions',
     'icon': 'code',
-    'color': '#57D9A3',
+    'color': '#2c3e50',
   },
   {
     'name': 'Resources',
     'icon': 'archive',
-    'color': '#FFC400',
+    'color': '#2c3e50',
   },
   {
     'name': 'Settings',
     'icon': 'cog',
-    'color': '#6B778C',
+    'color': '#2c3e50',
   },
 ]
 
