@@ -10,7 +10,8 @@ import {
   GoFileDirectory,
   GoSettings,
 } from 'react-icons/go'
-
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import routes from '../routes';
 
 const drawerWidth = 200;
 
@@ -67,29 +68,43 @@ class Sidebar extends Component {
     const { classes } = this.props;
 
     return (
-        <Drawer
-          variant="permanent"
-          classes={{paper: classes.drawerPaper}}
-          anchor="left"
-        >
-          <List className="list">
-            {menuItems.map((item, index) => (
-              <ListItem
-                button
-                key={index}
-                className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
-              >
-                <div className="icon-container">
-                  {getIcon(index)}
-                </div>
-                <ListItemText
-                  className={item['name'] === 'Resources' ? "shift-text" : "list-item-text"}
-                  primary={item['name']}
-                />
-              </ListItem>
-            ))}
-          </List>
-        </Drawer>
+      <Router>
+        <div>
+          <Drawer
+            variant="permanent"
+            classes={{paper: classes.drawerPaper}}
+            anchor="left"
+          >
+            <List className="list">
+              {menuItems.map((item, index) => (
+                <Link to="/algorithms-list">
+                  <ListItem
+                    button
+                    key={index}
+                    className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
+                  >
+                    <div className="icon-container">
+                      {getIcon(index)}
+                    </div>
+                    <ListItemText
+                      className={item['name'] === 'Resources' ? "shift-text" : "list-item-text"}
+                      primary={item['name']}
+                    />
+                  </ListItem>
+                </Link>
+              ))}
+            </List>
+          </Drawer>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              component={route.main}
+            />
+          ))}
+        </div>
+      </Router>
     );
   }
 }

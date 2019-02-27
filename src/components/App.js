@@ -7,6 +7,7 @@ import SideBar from './sidebar/Sidebar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
 import GuideLayout from './layouts/GuideLayout';
+import ListLayout from './layouts/ListLayout';
 
 library.add(faCode, faBook, faGraduationCap, faArchive, faCog);
 
