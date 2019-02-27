@@ -30,25 +30,25 @@ const getIcon = (index) => {
   switch(index) {
     case 1:
       return (
-        <IconContext.Provider value={{color: '#2ecc71'}}>
+        <IconContext.Provider value={{ color: '#8e44ad' }}>
           <GoDatabase />
         </IconContext.Provider>
       );
     case 2:
       return (
-        <IconContext.Provider value={{ color: '#2ecc71' }}>
+        <IconContext.Provider value={{ color: '#f1c40f' }}>
           <GoCode />
         </IconContext.Provider>
       );
     case 3:
       return (
-        <IconContext.Provider value={{ color: '#2ecc71' }}>
+        <IconContext.Provider value={{ color: '#3498db' }}>
           <GoFileDirectory />
         </IconContext.Provider>
       );
     case 4:
       return (
-        <IconContext.Provider value={{ color: '#2ecc71' }}>
+        <IconContext.Provider value={{ color: '#2c3e50' }}>
           <GoSettings />
         </IconContext.Provider>
       );
