@@ -4,12 +4,8 @@ import { MuiThemeProvider, withStyles } from '@material-ui/core';
 import theme from './theme';
 import './App.css';
 import Sidebar from './sidebar/Sidebar';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
-import GuideLayout from './layouts/GuideLayout';
-import ListLayout from './layouts/ListLayout';
+import ResourcesList from './resources-list/ResourcesList';
 
-library.add(faCode, faBook, faGraduationCap, faArchive, faCog);
 
 const styles = theme => ({
   root: {
@@ -36,15 +32,23 @@ class App extends Component {
 
 
   updateId(newId) {
-    console.log('app' + newId)
+    this.setState({id: newId});
   }
 
   showContent(id) {
     switch (id) {
       case 0:
-        return <ListLayout />
+        return <h1>Algorithms</h1>
+      case 1:
+        return <h1>Data Structures</h1>
+      case 2:
+        return <h1>Challenges</h1>
+      case 3:
+        return <ResourcesList />
+      case 4:
+        return <h1>Settings</h1>
       default:
-        return <GuideLayout />
+        return <h1>Home</h1>
     }
   }
 
@@ -58,7 +62,7 @@ class App extends Component {
           <Sidebar updateId={this.updateId} />
 
           <main className={classes.content}>
-            { this.showContent(0) }
+            { this.showContent(this.state.id) }
           </main>
         </MuiThemeProvider>
       </div>

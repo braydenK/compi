@@ -62,8 +62,9 @@ const getIcon = (index) => {
 
 class Sidebar extends Component {
 
-  handleClick() {
-    this.props.updateId(0)
+  handleClick(id) {
+    console.log('Clicked id: ' + id);
+    this.props.updateId(id)
   }
 
   render() {
@@ -79,7 +80,7 @@ class Sidebar extends Component {
               {menuItems.map((item, index) => (
                   <ListItem
                     button
-                    onClick={this.handleClick}
+                    onClick={() => this.handleClick(index)}
                     key={index}
                     className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
                   >

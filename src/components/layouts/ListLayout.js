@@ -1,45 +1,11 @@
 import React, { Component } from 'react';
-import { Typography, Collapse, withStyles, Divider, List, ListItemText, ListItem } from '@material-ui/core';
+import { Typography, withStyles, Collapse, Divider, List, ListItemText, ListItem } from '@material-ui/core';
 
 const styles = () => ({
   sheetContainer: {
     height: '100vh',
   }
 })
-
-const title = 'Algorithms'
-const listItems = [
-    {
-      'id': 0,
-      'category': 'Sorting and Searching Algorithms',
-      'items': [
-        {
-          'name': 'Bubble Sort'
-        }
-      ],
-    },
-    {
-      'id': 1,
-      'category': 'Graph Algorithms',
-      'items': [
-        {
-          'name': 'Breadth First Search (BFS)'
-        },
-        {
-          'name': 'Depth First Search (DFS)'
-        },
-      ],
-    },
-    {
-      'id': 2,
-      'category': 'Number Theory',
-      'items': [
-        {
-          'name': 'Chinese Remainder Theorem'
-        }
-      ],
-    },
-]
 
 class ListLayout extends Component {
 
@@ -54,11 +20,12 @@ class ListLayout extends Component {
   }
 
   handleClick(id) {
-    this.setState({ openId: id+10 });
+    this.setState({ openId: id });
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, title, items } = this.props;
+    let counter = 1;
 
     return (
       <div className={classes.sheetContainer}>
@@ -72,9 +39,9 @@ class ListLayout extends Component {
           <Divider />
         </div>
 
-        {listItems.map((item) => (
-          <List key={item.id+10}>
-            <div key={item.id}>
+        {items.map((item) => (
+          <List key={counter}>
+            <div key={counter+10}>
               <ListItem
                 button
                 key={item.id}
@@ -82,20 +49,22 @@ class ListLayout extends Component {
               >
                 <ListItemText primary={item.category} />
               </ListItem>
+
               <Collapse
-                key={item.id+100}
-                in={this.state.openId === item.id+100}
+                key={counter+100}
+                in={this.state.openId === item.id}
                 timeout="auto"
                 unmountOnExit
               >
                 <List component="div" disablePadding>
-                  {item.items.map((alg) => (
-                    <ListItem button className={classes.nested} key={item.id+1000}>
-                      <ListItemText inset primary={alg.name} />
+                  {item.items.map((nestedItem) => (
+                    <ListItem button className={classes.nested} key={nestedItem.id}>
+                      <ListItemText inset primary={nestedItem.name} />
                     </ListItem>
                   ))}
                 </List>
               </Collapse>
+
             </div>
           </List>
         ))}
