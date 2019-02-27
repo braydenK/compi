@@ -76,7 +76,6 @@ class Sidebar extends Component {
     return (
           <Drawer
             variant="permanent"
-            classes={{paper: classes.drawerPaper}}
             anchor="left"
           >
             <List className="list">

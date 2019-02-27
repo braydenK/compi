@@ -1,3 +1,17 @@
+.drawerPaper {
+    position: relative;
+    white-space: nowrap;
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
 
 .drawer {
     flex-shrink: 0 !important;

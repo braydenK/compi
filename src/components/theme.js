@@ -22,7 +22,7 @@ const theme = createMuiTheme({
     MuiDrawer: {
       paper: {
         backgroundColor: '#ffffff',
-        width: 180,
+        width: 200,
       },
     },
     MuiListItemText: {
