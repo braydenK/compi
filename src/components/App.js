@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, withStyles } from '@material-ui/core';
 import theme from './theme';
 import './App.css';
-import SideBar from './sidebar/Sidebar';
+import Sidebar from './sidebar/Sidebar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
 import GuideLayout from './layouts/GuideLayout';
@@ -25,6 +25,16 @@ const styles = theme => ({
 });
 
 class App extends Component {
+
+  showContent(id) {
+    switch(id) {
+      case 0:
+        return <ListLayout />
+      default:
+        return <GuideLayout />
+    }
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -32,10 +42,10 @@ class App extends Component {
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
-          <SideBar />
+          <Sidebar />
 
           <main className={classes.content}>
-            <GuideLayout />
+            { this.showContent(this.props.displayId) }
           </main>
         </MuiThemeProvider>
       </div>
