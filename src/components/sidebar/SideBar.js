@@ -3,7 +3,7 @@ import { Drawer, withStyles, List, ListItem, ListItemText, ListItemIcon, Typogra
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Sidebar.css';
 
-const drawerWidth = 200;
+const drawerWidth = '180px';
 
 const styledBy = (property, mapping) => props => mapping[props[property]];
 
