@@ -25,9 +25,22 @@ const styles = theme => ({
 });
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: 9
+    }
+    this.showContent = this.showContent.bind(this);
+    this.updateId = this.updateId.bind(this);
+  }
+
+
+  updateId(newId) {
+    console.log('app' + newId)
+  }
 
   showContent(id) {
-    switch(id) {
+    switch (id) {
       case 0:
         return <ListLayout />
       default:
@@ -42,10 +55,10 @@ class App extends Component {
       <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
-          <Sidebar />
+          <Sidebar updateId={this.updateId} />
 
           <main className={classes.content}>
-            { this.showContent(this.props.displayId) }
+            { this.showContent(0) }
           </main>
         </MuiThemeProvider>
       </div>

@@ -73,7 +73,7 @@ class ListLayout extends Component {
         </div>
 
         {listItems.map((item) => (
-          <List>
+          <List key={item.id+10}>
             <div key={item.id}>
               <ListItem
                 button
@@ -83,14 +83,14 @@ class ListLayout extends Component {
                 <ListItemText primary={item.category} />
               </ListItem>
               <Collapse
-                key={item.id+10}
-                in={this.state.openId === item.id+10}
+                key={item.id+100}
+                in={this.state.openId === item.id+100}
                 timeout="auto"
                 unmountOnExit
               >
                 <List component="div" disablePadding>
                   {item.items.map((alg) => (
-                    <ListItem button className={classes.nested}>
+                    <ListItem button className={classes.nested} key={item.id+1000}>
                       <ListItemText inset primary={alg.name} />
                     </ListItem>
                   ))}

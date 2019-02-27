@@ -9,9 +9,7 @@ import {
   GoCode,
   GoFileDirectory,
   GoSettings,
-} from 'react-icons/go'
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import routes from '../routes';
+} from 'react-icons/go';
 
 const drawerWidth = 200;
 
@@ -64,12 +62,14 @@ const getIcon = (index) => {
 
 class Sidebar extends Component {
 
+  handleClick() {
+    this.props.updateId(0)
+  }
+
   render() {
     const { classes } = this.props;
 
     return (
-      <Router>
-        <div>
           <Drawer
             variant="permanent"
             classes={{paper: classes.drawerPaper}}
@@ -77,9 +77,9 @@ class Sidebar extends Component {
           >
             <List className="list">
               {menuItems.map((item, index) => (
-                <Link to="/algorithms-list">
                   <ListItem
                     button
+                    onClick={this.handleClick}
                     key={index}
                     className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
                   >
@@ -91,20 +91,9 @@ class Sidebar extends Component {
                       primary={item['name']}
                     />
                   </ListItem>
-                </Link>
               ))}
             </List>
           </Drawer>
-          {routes.map((route, index) => (
-            <Route
-              key={index}
-              path={route.path}
-              exact={route.exact}
-              component={route.main}
-            />
-          ))}
-        </div>
-      </Router>
     );
   }
 }
