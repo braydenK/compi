@@ -6,7 +6,7 @@ import './App.css';
 import SideBar from './sidebar/Sidebar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/free-solid-svg-icons';
-import ListLayout from './layouts/ListLayout';
+import GuideLayout from './layouts/GuideLayout';
 
 library.add(faCode, faBook, faGraduationCap, faArchive, faCog);
 
@@ -34,7 +34,7 @@ class App extends Component {
           <SideBar />
 
           <main className={classes.content}>
-            <ListLayout />
+            <GuideLayout />
           </main>
         </MuiThemeProvider>
       </div>
