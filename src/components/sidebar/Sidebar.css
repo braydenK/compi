@@ -1,50 +1,18 @@
-:root {
-    --drawerWidth: 200;
-}
-
 .container {
     display: flex;
 }
 
 .drawer {
-    width: var(--drawerWidth);
     flex-shrink: 0;
-}
-
-.drawerPaper {
-    width: var(--drawerWidth);
-    background-color: '#172B4D !important';
+    height: 100vh;
 }
 
 .list {
     height: 100vh;
+    padding-top: 40px !important;
 }
 
-.listItem:hover {
-    background-color: '#42526E'
-}
-
-.listItemText {
-    color: '#ffffff';
-    font-weight: 500;
-    margin-left: -10;
-}
-
-.listItemIcon {
-    height: 20;
-    width: 20;
-}
-
-.icon {
-    color: '#ffffff'
-}
-
-.bottomList {
-    height: '100%';
-    position: 'relative';
-}
-
-.bottomListItem {
-    position: 'absolute';
+.bottom-list-item {
+    position: absolute !important;
     bottom: 0;
 }

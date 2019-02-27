@@ -20,14 +20,16 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiDrawer: {
-      width: 180,
       paper: {
         backgroundColor: '#ffffff',
+        width: 180,
       }
     },
     MuiListItemText: {
-      color: '#2c3e50'
-    }
+      root: {
+        color: '#2c3e50'
+      }
+    },
   }
 });
 
