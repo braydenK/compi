@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, withStyles } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Sidebar.css';
 import menuItems from './menu-items';
 
+const drawerWidth = 200;
+
+const styles = theme => ({
+  drawerPaper: {
+      position: 'relative',
+      whiteSpace: 'nowrap',
+      width: drawerWidth,
+      transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    }
+});
+
 class Sidebar extends Component {
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="container">
         <Drawer
-          className="drawer"
           variant="permanent"
+          classes={{paper: classes.drawerPaper}}
           anchor="left"
         >
           <List className="list">
@@ -36,9 +51,8 @@ class Sidebar extends Component {
             ))}
           </List>
         </Drawer>
-      </div>
     );
   }
 }
 
-export default Sidebar;
+export default withStyles(styles)(Sidebar);

@@ -1,9 +1,6 @@
-.container {
-    display: flex;
-}
 
 .drawer {
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
     height: 100vh;
 }
 

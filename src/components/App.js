@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider, withStyles, Typography } from '@material-ui/core';
 import theme from './theme';
 import './App.css';
 import SideBar from './sidebar/Sidebar';
@@ -9,15 +9,30 @@ import { faCode, faBook, faGraduationCap, faArchive, faCog } from '@fortawesome/
 
 library.add(faCode, faBook, faGraduationCap, faArchive, faCog);
 
+const styles = theme => ({
+  root: {
+    display: 'flex'
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    height: '100vh',
+    overflow: 'auto',
+  },
+});
+
 class App extends Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="app">
+      <div className={classes.root}>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <SideBar />
-          <main className="content">
 
+          <main className={classes.content}>
           </main>
         </MuiThemeProvider>
       </div>
@@ -25,4 +40,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
