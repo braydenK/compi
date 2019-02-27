@@ -36,3 +36,18 @@
     vertical-align: middle;
 }
 
+.beaker-icon {
+    color: '#2ecc71' !important;
+}
+
+.db-icon {
+    color: '#2ecc71';
+}
+
+.code-icon {
+    color: '#2ecc71';
+}
+
+.settings-icon {
+    color: 'red';
+}

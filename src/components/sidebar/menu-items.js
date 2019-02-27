@@ -3,23 +3,23 @@
  */
 const menuItems = [
   {
-    'name': 'Study',
-    'icon': 'graduation-cap',
+    'name': 'Algorithms',
     'color': '#2c3e50',
   },
   {
-    'name': 'Questions',
-    'icon': 'code',
+    'name': 'Data Structures',
+    'color': '#2c3e50',
+  },
+  {
+    'name': 'Challenges',
     'color': '#2c3e50',
   },
   {
     'name': 'Resources',
-    'icon': 'archive',
     'color': '#2c3e50',
   },
   {
     'name': 'Settings',
-    'icon': 'cog',
     'color': '#2c3e50',
   },
 ]
