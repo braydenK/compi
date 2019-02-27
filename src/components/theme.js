@@ -23,11 +23,11 @@ const theme = createMuiTheme({
       paper: {
         backgroundColor: '#ffffff',
         width: 180,
-      }
+      },
     },
     MuiListItemText: {
       root: {
-        color: '#2c3e50'
+        color: '#2c3e50',
       }
     },
   }

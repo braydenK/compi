@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Drawer, List, ListItem, ListItemText, withStyles } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, withStyles, Typography } from '@material-ui/core';
 import { IconContext } from 'react-icons';
 import './Sidebar.css';
 import menuItems from './menu-items';
@@ -11,18 +11,21 @@ import {
   GoSettings,
 } from 'react-icons/go';
 
+// {index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
+
 const drawerWidth = 200;
 
-const styles = theme => ({
-  drawerPaper: {
+const styles = () => ({
+    drawerPaper: {
       position: 'relative',
       whiteSpace: 'nowrap',
       width: drawerWidth,
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    }
+    },
+    listItem: {
+      '&:hover': {
+        backgroundColor: '#ecf0f1',
+      },
+    },
 });
 
 const getIcon = (index) => {
@@ -80,16 +83,15 @@ class Sidebar extends Component {
               {menuItems.map((item, index) => (
                   <ListItem
                     button
+                    className={classes.listItem}
                     onClick={() => this.handleClick(index)}
                     key={index}
-                    className={index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
                   >
                     <div className="icon-container">
                       {getIcon(index)}
                     </div>
                     <ListItemText
-                      className={item['name'] === 'Resources' ? "shift-text" : "list-item-text"}
-                      primary={item['name']}
+                      primary={item.name}
                     />
                   </ListItem>
               ))}
