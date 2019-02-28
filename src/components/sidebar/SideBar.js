@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { Drawer, List, ListItem, ListItemText, withStyles } from '@material-ui/core';
 import { IconContext } from 'react-icons';
 import './Sidebar.css';
-import menuItems from './menu-items';
-import { GoBeaker, GoDatabase, GoCode, GoFileDirectory, GoSettings } from 'react-icons/go';
+import { GoBeaker, GoDatabase, GoCode, GoFileDirectory, GoSettings, GoHome } from 'react-icons/go';
 
-// {index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
+const menuItems = [
+  'Home',
+  'Algorithms',
+  'Data Structures',
+  'Challenges',
+  'Resources',
+  'Settings'
+]
 
 const drawerWidth = 200;
 
@@ -24,25 +30,37 @@ const styles = () => ({
 
 const getIcon = (index) => {
   switch(index) {
+    case 0:
+      return (
+        <IconContext.Provider value={{ color: '#2ecc71' }}>
+          <GoHome />
+        </IconContext.Provider>
+      );
     case 1:
       return (
         <IconContext.Provider value={{ color: '#8e44ad' }}>
-          <GoDatabase />
+          <GoBeaker />
         </IconContext.Provider>
       );
     case 2:
       return (
         <IconContext.Provider value={{ color: '#f1c40f' }}>
-          <GoCode />
+          <GoDatabase />
         </IconContext.Provider>
       );
     case 3:
       return (
         <IconContext.Provider value={{ color: '#3498db' }}>
-          <GoFileDirectory />
+          <GoCode />
         </IconContext.Provider>
       );
     case 4:
+      return (
+        <IconContext.Provider value={{ color: '#2c3e50' }}>
+          <GoFileDirectory />
+        </IconContext.Provider>
+      );
+    case 5:
       return (
         <IconContext.Provider value={{ color: '#2c3e50' }}>
           <GoSettings />
@@ -51,7 +69,7 @@ const getIcon = (index) => {
     default:
       return (
         <IconContext.Provider value={{ color: '#2ecc71' }}>
-          <GoBeaker />
+          <GoHome />
         </IconContext.Provider>
       );
   }
@@ -70,9 +88,10 @@ class Sidebar extends Component {
       <Drawer
         variant="permanent"
         anchor="left"
+        classes={{paper: classes.drawerPaper}}
       >
         <List className="list">
-          {menuItems.map((item, index) => (
+          {menuItems.map((menuItem, index) => (
             <ListItem
               button
               className={classes.listItem}
@@ -83,7 +102,7 @@ class Sidebar extends Component {
                 {getIcon(index)}
               </div>
               <ListItemText
-                primary={item.name}
+                primary={menuItem}
               />
             </ListItem>
           ))}
