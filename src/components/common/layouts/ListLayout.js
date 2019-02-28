@@ -39,26 +39,24 @@ class ListLayout extends Component {
           <Divider />
         </div>
 
-        {items.map((item) => (
-          <List key={counter}>
-            <div key={counter+10}>
+        {items.map((item, index) => (
+          <List key={index}>
+            <div>
               <ListItem
                 button
-                key={item.id}
                 onClick={this.handleClick.bind(this, item.id)}
               >
                 <ListItemText primary={item.category} />
               </ListItem>
 
               <Collapse
-                key={counter+100}
                 in={this.state.openId === item.id}
                 timeout="auto"
                 unmountOnExit
               >
                 <List component="div" disablePadding>
-                  {item.items.map((nestedItem) => (
-                    <ListItem button className={classes.nested} key={nestedItem.id}>
+                  {item.items.map((nestedItem, nestedIndex) => (
+                    <ListItem button className={classes.nested} key={nestedIndex}>
                       <ListItemText inset primary={nestedItem.name} />
                     </ListItem>
                   ))}
