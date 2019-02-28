@@ -6,6 +6,17 @@ import './App.css';
 import Sidebar from './sidebar/Sidebar';
 import ResourcesList from './resources-list/ResourcesList';
 
+import JssProvider from 'react-jss/lib/JssProvider';
+import { create } from "jss";
+import { createGenerateClassName, jssPreset } from "@material-ui/core/styles";
+
+const generateClassName = createGenerateClassName();
+const jss = create({
+  ...jssPreset(),
+  // Define a custom insertion for injecting the JSS styles in the DOM
+  insertionPoint: document.getElementById("jss-insertion-point")
+});
+
 const styles = theme => ({
   root: {
     display: 'flex'
@@ -54,16 +65,18 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-          <Sidebar updateId={this.updateId} />
+      <JssProvider jss={jss} generateClassName={generateClassName}>
+        <div className={classes.root}>
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <Sidebar updateId={this.updateId} />
 
-          <main className={classes.content}>
-            { this.showContent(this.state.id) }
-          </main>
-        </MuiThemeProvider>
-      </div>
+            <main className={classes.content}>
+              { this.showContent(this.state.id) }
+            </main>
+          </MuiThemeProvider>
+        </div>
+      </JssProvider>
     );
   }
 }
