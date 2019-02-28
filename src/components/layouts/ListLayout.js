@@ -64,7 +64,6 @@ class ListLayout extends Component {
                   ))}
                 </List>
               </Collapse>
-
             </div>
           </List>
         ))}

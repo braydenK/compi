@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import { Drawer, List, ListItem, ListItemText, withStyles, Typography } from '@material-ui/core';
+import { Drawer, List, ListItem, ListItemText, withStyles } from '@material-ui/core';
 import { IconContext } from 'react-icons';
 import './Sidebar.css';
 import menuItems from './menu-items';
-import {
-  GoBeaker,
-  GoDatabase,
-  GoCode,
-  GoFileDirectory,
-  GoSettings,
-} from 'react-icons/go';
+import { GoBeaker, GoDatabase, GoCode, GoFileDirectory, GoSettings } from 'react-icons/go';
 
 // {index === (menuItems.length - 1) ? "bottom-list-item": "list-item"}
 
@@ -66,7 +60,6 @@ const getIcon = (index) => {
 class Sidebar extends Component {
 
   handleClick(id) {
-    console.log('Clicked id: ' + id);
     this.props.updateId(id)
   }
 
@@ -74,28 +67,28 @@ class Sidebar extends Component {
     const { classes } = this.props;
 
     return (
-          <Drawer
-            variant="permanent"
-            anchor="left"
-          >
-            <List className="list">
-              {menuItems.map((item, index) => (
-                  <ListItem
-                    button
-                    className={classes.listItem}
-                    onClick={() => this.handleClick(index)}
-                    key={index}
-                  >
-                    <div className="icon-container">
-                      {getIcon(index)}
-                    </div>
-                    <ListItemText
-                      primary={item.name}
-                    />
-                  </ListItem>
-              ))}
-            </List>
-          </Drawer>
+      <Drawer
+        variant="permanent"
+        anchor="left"
+      >
+        <List className="list">
+          {menuItems.map((item, index) => (
+            <ListItem
+              button
+              className={classes.listItem}
+              onClick={() => this.handleClick(index)}
+              key={index}
+            >
+              <div className="icon-container">
+                {getIcon(index)}
+              </div>
+              <ListItemText
+                primary={item.name}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
     );
   }
 }

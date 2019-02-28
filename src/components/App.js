@@ -6,7 +6,6 @@ import './App.css';
 import Sidebar from './sidebar/Sidebar';
 import ResourcesList from './resources-list/ResourcesList';
 
-
 const styles = theme => ({
   root: {
     display: 'flex'
@@ -24,12 +23,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 9
+      id: 0
     }
     this.showContent = this.showContent.bind(this);
     this.updateId = this.updateId.bind(this);
   }
-
 
   updateId(newId) {
     this.setState({id: newId});

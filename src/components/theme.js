@@ -18,19 +18,6 @@ const theme = createMuiTheme({
       fontFamily: ['Montserrat', 'sans-serif'].join(',')
     },
   },
-  overrides: {
-    MuiDrawer: {
-      paper: {
-        backgroundColor: '#ffffff',
-        width: 200,
-      },
-    },
-    MuiListItemText: {
-      root: {
-        color: '#2c3e50',
-      }
-    },
-  }
 });
 
 export default theme;
