@@ -9,6 +9,11 @@ import ResourcesList from './resources-list/ResourcesList';
 import JssProvider from 'react-jss/lib/JssProvider';
 import { create } from "jss";
 import { createGenerateClassName, jssPreset } from "@material-ui/core/styles";
+import Home from './home/Home';
+import DataStructuresList from './data-structures/DataStructuresList';
+import AlgorithmsList from './algorithms/AlgorithmsList';
+import ChallengesList from './challenges/ChallengesList';
+import Settings from './settings/Settings';
 
 const generateClassName = createGenerateClassName();
 const jss = create({
@@ -47,17 +52,19 @@ class App extends Component {
   showContent(id) {
     switch (id) {
       case 0:
-        return <h1>Algorithms</h1>
+        return <Home />
       case 1:
-        return <h1>Data Structures</h1>
+        return <AlgorithmsList />
       case 2:
-        return <h1>Challenges</h1>
+        return <DataStructuresList />
       case 3:
-        return <ResourcesList />
+        return <ChallengesList />
       case 4:
-        return <h1>Settings</h1>
+        return <ResourcesList />
+      case 5:
+        return <Settings />
       default:
-        return <h1>Home</h1>
+        return <Home />
     }
   }
 
