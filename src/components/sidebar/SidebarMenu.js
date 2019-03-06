@@ -36,7 +36,7 @@ const menuItems = [
   }
 ];
 
-
+// TODO: place in global theme
 const styles = () => ({
   listItem: {
     '&:hover': {
@@ -67,9 +67,7 @@ class SidebarMenu extends Component {
             <div className="icon-container">
               <IconContainer color={item.color} icon={item.icon} />
             </div>
-            <ListItemText
-              primary={item.title}
-            />
+            <ListItemText primary={item.title} />
           </ListItem>
         ))}
       </List>

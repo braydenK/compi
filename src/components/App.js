@@ -41,6 +41,7 @@ class App extends Component {
     this.state = {
       id: 0
     }
+
     this.showContent = this.showContent.bind(this);
     this.updateId = this.updateId.bind(this);
   }
@@ -50,6 +51,8 @@ class App extends Component {
   }
 
   showContent(id) {
+    // TODO: props arent being passed here.
+
     switch (id) {
       case 0:
         return <Home />
@@ -73,11 +76,11 @@ class App extends Component {
 
     return (
       <JssProvider jss={jss} generateClassName={generateClassName}>
+        {/* TODO: root div possibly redundant due to CSS Baseline reset. */}
         <div className={classes.root}>
           <MuiThemeProvider theme={theme}>
             <CssBaseline />
             <Sidebar updateId={this.updateId} />
-
             <main className={classes.content}>
               { this.showContent(this.state.id) }
             </main>

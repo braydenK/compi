@@ -25,7 +25,6 @@ class ListLayout extends Component {
 
   render() {
     const { classes, title, items } = this.props;
-    let counter = 1;
 
     return (
       <div className={classes.sheetContainer}>

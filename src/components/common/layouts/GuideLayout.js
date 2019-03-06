@@ -29,10 +29,7 @@ class GuideLayout extends Component {
     return (
       <div className={classes.guideContainer}>
         <div className={classes.titleContainer}>
-          <Typography
-            variant="h3"
-            align="center"
-          >
+          <Typography variant="h3" align="center">
             Guide Layout
           </Typography>
           <Divider />
@@ -44,7 +41,6 @@ class GuideLayout extends Component {
               source={mdFile}
             />
           </Paper>
-
       </div>
     );
   }
